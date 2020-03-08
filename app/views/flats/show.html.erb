@@ -1,0 +1,9 @@
+<%= @flat.title %>
+
+<%# if current_user.id != @flat.user_id  %>
+ <%= simple_form_for([@flat, @booking]) do |f| %>
+     <%= f.input :start_date, as: :string, type: :text %>
+     <%= f.input :end_date, as: :string, type: :text %>
+     <%= f.submit "Book", class: "btn btn-flat button-book" %>
+  <% end %>
+<%# end %>

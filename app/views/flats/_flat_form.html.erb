@@ -1,0 +1,11 @@
+<%= simple_form_for [@flat] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+
+  <%= f.association :country, collection: Country.all.order(:country_name), label_method: :country_name, prompt: "Choose a Country", value_method: :id, include_blank: false %>
+  <%= f.number_field :price_day %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.association :category %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

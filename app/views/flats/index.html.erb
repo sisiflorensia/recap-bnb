@@ -1,0 +1,10 @@
+<h1>Flat - Index page</h1>
+
+<div class="all-flats">
+  <% @flats.each do |flat| %>
+    <h2><%= flat.title %></h2>
+    <h3><%= flat.address %></h3>
+    <h4><%= flat.description %></h4>
+    <%= cl_image_tag flat.photos[0].key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+</div>
