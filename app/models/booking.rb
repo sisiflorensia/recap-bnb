@@ -2,5 +2,5 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :flat
   belongs_to :status
-  has_one :review
+  has_one :review, dependent: :destroy
 end
