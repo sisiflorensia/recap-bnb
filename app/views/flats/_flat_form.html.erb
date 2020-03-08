@@ -4,8 +4,10 @@
   <%= f.input :address %>
 
   <%= f.association :country, collection: Country.all.order(:country_name), label_method: :country_name, prompt: "Choose a Country", value_method: :id, include_blank: false %>
+  <%= f.label '💲 Price per day' %>
   <%= f.number_field :price_day %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :photos, as: :file, input_html: { class: 'd-none', id: 'photo-input', multiple: true  }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+  <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
   <%= f.association :category %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>

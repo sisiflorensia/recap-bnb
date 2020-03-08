@@ -1,9 +1,13 @@
 <%= @flat.title %>
 
-<%# if current_user.id != @flat.user_id  %>
- <%= simple_form_for([@flat, @booking]) do |f| %>
-     <%= f.input :start_date, as: :string, type: :text %>
-     <%= f.input :end_date, as: :string, type: :text %>
-     <%= f.submit "Book", class: "btn btn-flat button-book" %>
-  <% end %>
-<%# end %>
+<div id='flat-booking-dates' data-unavailable="<%= @flat.unavailable_dates.to_json %>">
+    <% if current_user.id != @flat.user_id  %>
+       <%= simple_form_for([@flat, @booking]) do |f| %>
+           <%= f.input :start_date, as: :string, type: :text %>
+           <%= f.input :end_date, as: :string, type: :text %>
+           <%= f.submit "Book", class: "btn btn-primary" %>
+        <% end %>
+    <% else %>
+      <h3>You can't book your own flat!</h3>
+    <% end %>
+ </div>

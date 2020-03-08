@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path
     else
+      flash[:alert] = "Something went wrong."
       render 'flats/show'
     end
   end

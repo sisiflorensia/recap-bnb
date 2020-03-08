@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [ :index ]
   before_action :set_flat, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -20,6 +20,7 @@ class FlatsController < ApplicationController
     if @flat.save
       redirect_to @flat
     else
+      flash[:alert] = "Something went wrong."
       render :new
     end
   end
